@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://java.sun.com/xml/ns/j2ee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
+	id="WebApp_ID" version="2.4">
+	<display-name>kvachwebapp</display-name>
+	<filter>
+		<description>
+		</description>
+		<display-name>LoginFilter</display-name>
+		<filter-name>LoginFilter</filter-name>
+		<filter-class>com.nix.servletfilters.LoginFilter</filter-class>
+	</filter>
+	
+	<filter>
+		<description>
+		</description>
+		<display-name>AdminAccessFilter</display-name>
+		<filter-name>AdminAccessFilter</filter-name>
+		<filter-class>com.nix.servletfilters.AdminAccessFilter</filter-class>
+	</filter>
+	<!-- <filter>
+		<description>
+		</description>
+		<display-name>AddNewUserFilter</display-name>
+		<filter-name>AddNewUserFilter</filter-name>
+		<filter-class>com.nix.servletfilters.AddNewUserFilter</filter-class>
+	</filter> -->
+	
+
+	
+	<filter-mapping>
+		<filter-name>AdminAccessFilter</filter-name>
+		<url-pattern>/admin/*</url-pattern>
+	</filter-mapping>
+	<!-- <filter-mapping>
+		<filter-name>AddNewUserFilter</filter-name>
+		<url-pattern>/AddNewUserFilter</url-pattern>
+	</filter-mapping> -->
+	
+	<servlet>
+		<description>
+		</description>
+		<display-name>SessionValidator</display-name>
+		<servlet-name>SessionValidator</servlet-name>
+		<servlet-class>com.nix.servlets.SessionValidator</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>SessionValidator</servlet-name>
+		<url-pattern>/SessionValidator</url-pattern>
+	</servlet-mapping>
+	
+	<error-page>
+		<error-code>404</error-code>
+		<location>/404.html</location>
+	</error-page>
+	
+	<error-page>
+		<exception-type>java.lang.Throwable</exception-type>
+		<location>/error.jsp</location>
+	</error-page>
+	
+</web-app>

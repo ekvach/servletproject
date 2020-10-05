@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context>
+    <!-- Specify a JDBC datasource -->
+    <Resource name="jdbc/ConPool"
+             auth="Container"
+             type="javax.sql.DataSource"
+             username="sa"
+             password="sa"
+             driverClassName="org.h2.Driver"
+             url="jdbc:h2:tcp://kvach-db:1521/db"
+             validationQuery="select 1"
+             maxActive="10"
+             maxIdle="4"/>
+</Context>
+
+
+<!--              url="jdbc:h2:tcp://kvach-db:1521/db" -->
+<!--              url="jdbc:h2:tcp://localhost/D:/Devstvo/eclipseEE-workspace/kvachwebapp/h2/db" -->

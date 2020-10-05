@@ -1,0 +1,19 @@
+version: "3.3"
+services:
+  db:
+    container_name: kvach-db
+    image: "oscarfonts/h2"
+    ports:
+      - "81:81"
+      - "1521:1521"
+    volumes:
+      - "./h2/:/opt/h2-data"
+
+
+  app:
+    build: .
+    depends_on:
+      - db
+    container_name: kvach-servlet
+    ports:
+     - 8080:8080
